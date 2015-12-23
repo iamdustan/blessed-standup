@@ -5,6 +5,10 @@
   "main": "index.js",
   "bin": "./bin/blessed-standup.js",
   "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamdustan/blessed-standup.git"
+  },
   "scripts": {
     "prepublish": "babel src --out-dir lib",
     "eslint": "eslint .",
