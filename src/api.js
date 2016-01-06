@@ -153,8 +153,8 @@ const API = {
   },
 
   set(human, props) {
-    const activeIndex = data.findIndex(d => d[1] === human) + 1;
-    const realIndex = activeIndex + Object.keys(rawData).length - 11;
+    const activeIndex = data.findIndex(d => d[1] === human);
+    const realIndex = Object.keys(rawData).length - teamMembers.length + activeIndex;
     spreadsheet.add({
       [realIndex]: {
         3: props.yesterday,
@@ -164,8 +164,8 @@ const API = {
     });
 
     const clone = data.slice(0);
-    const target = data[activeIndex - 1];
-    clone[activeIndex - 1] = [target[0], target[1], 'Loading...', 'Loading...', 'Loading...'];
+    const target = data[activeIndex];
+    clone[activeIndex] = [target[0], target[1], 'Loading...', 'Loading...', 'Loading...'];
     API.fire('change', clone);
 
     spreadsheet.send((err) => {

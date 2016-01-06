@@ -14,7 +14,6 @@ try {
   );
 }
 
-
 const PERMISSION_SCOPE = 'https://spreadsheets.google.com/feeds';
 
 const OAuth2Client = new googleAuth().OAuth2;

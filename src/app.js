@@ -65,7 +65,7 @@ class App extends Component {
   }
 
   handleSubmit(fields) {
-    exec('git config --global user.name', function (err, stdout) {
+    exec('git config user.name', function (err, stdout) {
       api.set(stdout.trim(), fields);
     });
   }
