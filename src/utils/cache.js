@@ -4,13 +4,18 @@ import {
   writeFileSync as write
 } from 'fs';
 
+import {argv} from 'yargs';
 
-let memoryCache = null
+let memoryCache = null;
 const cacheFile = path.join(process.cwd(), '.blessedstandupcache');
-try {
-  memoryCache = JSON.parse(read(cacheFile, 'utf8'));
-} catch (e) {
+if (argv.ignoreCache) {
   memoryCache = {};
+} else {
+  try {
+    memoryCache = JSON.parse(read(cacheFile, 'utf8'));
+  } catch (e) {
+    memoryCache = {};
+  }
 }
 
 export const get = (key) => {
