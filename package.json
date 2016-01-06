@@ -1,6 +1,6 @@
 {
   "name": "blessed-standup",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "",
   "main": "index.js",
   "bin": "./bin/blessed-standup.js",
