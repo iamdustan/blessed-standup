@@ -154,6 +154,11 @@ const API = {
 
   set(human, props) {
     const activeIndex = data.findIndex(d => d[1] === human);
+    if (activeIndex === -1) {
+      console.warn('WARNING: %s is not found.', human);
+      return;
+    }
+
     const realIndex = Object.keys(rawData).length - teamMembers.length + activeIndex;
     spreadsheet.add({
       [realIndex]: {

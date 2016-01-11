@@ -13,13 +13,10 @@ const TITLE = ['Date', 'Human', 'Yesterday', 'Today', 'Blockers'];
 const DEFAULT_DATA = ['Loading...', 'Loading...', 'Loading...', 'Loading...', 'Loading...'];
 
 class Others extends Component {
-  constructor(props, context) {
-    super(props, context);
-  }
-
   render() {
     const {label, layout} = this.props;
     let data = this.props.data || [TITLE, DEFAULT_DATA];
+    data = data.map(d => d.slice(1)); // slice off the date display for now
 
     return (
       <table
@@ -32,7 +29,7 @@ class Others extends Component {
 }
 
 Others.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   layout: PropTypes.object.isRequired,
 }
 
